@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }}</title>
-  <meta name="description" content="ぞるあのWebページです。SNSへ容易にアクセスができたり、Webツールを作っていたりします。誰もが簡単に使えるサイトを目指しています。">
+  <meta name="description" content="{{ page.description }}">
 
-  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:card" content="{{ page.ogpimgsize }}">
   <meta name="twitter:site" content="@xullua">
-  <meta name="twitter:title" content="ぞるあ">
-  <meta name="twitter:description" content="Xullua Web">
-  <meta name="twitter:image" content="https://xullua.com/img/xullualogo1.png">
+  <meta name="twitter:title" content="{{ page.title }}">
+  <meta name="twitter:description" content="{{ page.description }}">
+  <meta name="twitter:image" content="{{ page.image }}">
 
   <link rel="shortcut icon" href="//xullua.com/img/favicon.ico">
   <!-- CSS -->
@@ -39,10 +39,21 @@
     });
   </script>
 </head>
+
 <body>
-    <header class="width-s"></header>
-    <main>
-        {{ content }}
-    </main>
-    <footer class="width-s" id="footer"></footer>
+  <header class="width-s"></header>
+  <main>
+    <div class="top">
+      <h1>{{ page.title }}</h1>
+      <p class="date">{{ page.date | date: "%Y/%m/%d" }}</p>
+      <p class="tags">
+        {% for tag in page.tags %}
+        <a href="//blog.xullua.com/tags/{{ tag | downcase }}">{{ tag }}</a>
+        {% endfor %}
+      </p>
+      <img src="{{ page.image }}" alt="">
+    </div>
+    <article>{{ content }}</article>
+  </main>
+  <footer class="width-s" id="footer"></footer>
 </body>
