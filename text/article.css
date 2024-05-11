@@ -1,0 +1,4 @@
+main {
+    margin: 60px auto;
+    width: min(var(--width-s),100% - 30px);
+}
