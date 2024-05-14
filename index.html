@@ -15,8 +15,10 @@
     <link rel="shortcut icon" href="https://xullua.com/img/favicon.ico">
     <link rel="stylesheet" href="//xullua.com/css/color.css">
     <link rel="stylesheet" href="//xullua.com/css/base.css">
+    <link rel="stylesheet" href="text/index.css">
     <title>ぞるあブログ</title>
     <script src="https://xullua.com/js/main.js" async></script>
+    <script src="text/blog.js" async></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JDKGJ1E005"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -46,31 +48,45 @@
 
     <div class="main-titles">
         <picture class="main-logo">
-            <source srcset="img/xulluabloglogowhite.webp" media="(prefers-color-scheme: dark)">
-            <img class="main-logo-img" src="img/xulluabloglogoblack.webp">
+            <source srcset="//xullua.com/img/xulluabloglogowhite.webp" media="(prefers-color-scheme: dark)">
+            <img class="main-logo-img" src="//xullua.com/img/xulluabloglogoblack.webp">
         </picture>
         <div class="main-text">ぞるあのブログとニュース</div>
     </div>
 
-    <div class="blogswrapper">
-        <dvi class="blogs">
-            <div class="blogs-text">オススメの記事</div>
-        </dvi>
+    <div class="blogswrapper" id="blogdisplay"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const blogDisplay = document.getElementById('blogdisplay');
 
-        <div class="blogboxes" id="output"></div>
-
-        <div class="ad">
-            <script async
-                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8816279824306037"
-                crossorigin="anonymous"></script>
-            <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
-                data-ad-format="fluid" data-ad-client="ca-pub-8816279824306037" data-ad-slot="5012308478"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
-    </div>
+            // ファイルリストを取得
+            fetch('articles/filelist.json')
+                .then(response => response.json())
+                .then(files => {
+                    files.forEach(file => {
+                        fetch(file)
+                            .then(response => response.text())
+                            .then(text => {
+                                const [yamlPart, markdownPart] = text.split('---').slice(1, 3);
+                                const metaData = jsyaml.load(yamlPart);
+                                const article = document.createElement('article');
+                                const articleHTML = `
+                                    <a href="${file.replace('.md', '.html')}">
+                                        <img src="${metaData.image}" alt="${metaData.title}">
+                                        <h3>${metaData.title}</h3>
+                                        <p class="date">${metaData.date.replace(/-/g, '/')}</p>
+                                        <p class="tags">${metaData.tags.map(tag => `<span>${tag}</span>`).join(' ')}</p>
+                                    </a>
+                                `;
+                                article.innerHTML = articleHTML;
+                                blogDisplay.appendChild(article);
+                            })
+                            .catch(error => console.error('Error loading file:', error));
+                    });
+                })
+                .catch(error => console.error('Error loading file list:', error));
+        });
+    </script>
 
     <!-- フッター -->
     <footer id="footer"></footer>
