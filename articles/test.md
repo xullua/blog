@@ -12,19 +12,21 @@ ogpimgsize: summary_large_image
 layout: article
 language: ja
 ---
-ここにテキストを表示[^ヒント]してみます
+ここにテキストを表示[^1]してみます
 # これはh1テキスト
 ここに注釈[^注釈]を入れてみる
-[^ヒント]:秘密だよ
-![namae](//xullua.com/img/top-hello6.webp)
+[^1]:秘密だよ
+
+![name](//xullua.com/img/top-hello6.webp)
+
 [^注釈]:注釈の内容
 ## この続きに文字は書けるのかな
+
 はいということでみなさんどうもこんにちは
+
 >引用文を書いてみよう
 うん
->>引用文を書いてみる
-書いてみた
->>>引用の中にさらに引用できるのか
+<cite>[文部科学省](https://example.com)</cite>
 
 はい
 
@@ -41,3 +43,10 @@ language: ja
 | kore | text |
 
 **太字**
+
+<details>
+<summary>アコーディオン開閉</summary>
+ここに文字を書けば閉じたり開いたり容易にできるはず！
+
+どうだろうね
+</details>
