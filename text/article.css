@@ -36,11 +36,13 @@ article {
     margin: 30px 0;
 }
 
-article p {
+article b {
+    font-weight: 700;
 }
 
 article h1 {
     font-weight: 900;
+    font-size: 24px;
 }
 
 article h2 {
@@ -81,7 +83,59 @@ article img {
     border-radius: 10px;
 }
 
-article ul {
+article ul,
+article ol {
     padding: 0 0 0 18px;
     margin: 10px 0;
+}
+
+article table {
+    min-width: 50%;
+}
+
+article table th,
+article table td {
+    background: var(--secondback);
+    padding: 3px 10px;
+}
+
+article blockquote {
+    background: radial-gradient(at left top,var(--supportback),var(--secondback));
+    padding: 15px 18px 15px 55px;
+    border-radius: 10px;
+    position: relative;
+    line-height: 1.5;
+    font-size: 16px;
+    color: var(--secondtext);
+    font-style: italic;
+    filter: drop-shadow(10px 10px 15px #0003);
+    transition: .2s;
+}
+
+article blockquote:hover {
+    padding: 15px 18px 15px 55px;
+    border-radius: 10px;
+    position: relative;
+    line-height: 1.5;
+    font-size: 16px;
+    color: var(--secondtext);
+    font-style: italic;
+}
+
+article blockquote::before {
+    position: absolute;
+    content: "“";
+    font-style: normal;
+    top: 12px;
+    left: 15px;
+    font-size: 80px;
+    line-height: 1;
+    color: var(--themecolorhover);
+}
+
+article blockquote cite {
+    display: block;
+    font-size: 11px;
+    text-align: right;
+    line-height: 1;
 }
