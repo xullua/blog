@@ -14,7 +14,7 @@ language: ja
 ---
 ここにテキストを表示[^1]してみます
 # これはh1テキスト
-ここに注釈[^注釈]を入れてみる
+ここに注釈[^2]を入れてみる
 
 - [これはh1テキスト](#これはh1テキスト)
   - [この続きに文字は書けるのかな](#この続きに文字は書けるのかな)
@@ -24,14 +24,14 @@ language: ja
 
 ![name](//xullua.com/img/top-hello6.webp)
 
-[^注釈]:注釈の内容
+[^2]:注釈の内容
 ## この続きに文字は書けるのかな
 
 はいということでみなさんどうもこんにちは
 
->引用文を書いてみよう
-うん
-<cite>[文部科学省](https://example.com)</cite>
+><b>日本国憲法 前文</b>
+日本国民は、国家の名誉にかけ、全力をあげてこの崇高な理想と目的を達成することを誓ふ。
+<cite>[衆議院 日本国憲法](https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/dl-constitution.htm)</cite>
 
 はい
 
