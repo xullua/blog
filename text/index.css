@@ -1,0 +1,7 @@
+article {
+    width: 100%;
+}
+
+article img {
+    width: min(100%,200px);
+}

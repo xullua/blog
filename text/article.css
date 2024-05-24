@@ -85,8 +85,12 @@ article img {
 
 article ul,
 article ol {
-    padding: 0 0 0 18px;
+    padding: 0 0 0 22px;
     margin: 10px 0;
+}
+
+article li::marker {
+    width: 23px;
 }
 
 article table {
@@ -107,8 +111,8 @@ article blockquote {
     line-height: 1.5;
     font-size: 16px;
     color: var(--secondtext);
+    filter: drop-shadow(7px 7px 10px #0052);
     font-style: italic;
-    filter: drop-shadow(10px 10px 15px #0003);
     transition: .2s;
 }
 
@@ -130,7 +134,7 @@ article blockquote::before {
     left: 15px;
     font-size: 80px;
     line-height: 1;
-    color: var(--themecolorhover);
+    color: var(--themecolor);
 }
 
 article blockquote cite {
@@ -138,4 +142,17 @@ article blockquote cite {
     font-size: 11px;
     text-align: right;
     line-height: 1;
+}
+
+article details {
+    background: var(--secondback);
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: var(--subtext);
+    transition: .2s;
+}
+
+article details summary {
+    color: var(--maintext);
+    cursor: pointer;
 }
