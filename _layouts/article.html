@@ -34,21 +34,21 @@
   <!-- 共通部分 -->
   <script>
     $(function () {
-      $("header").load("https://xullua.com/header.html");
-      $("footer").load("https://xullua.com/footer.html");
+      $("header").load("//scope.xullua.com/header.html");
+      $("footer").load("//xullua.com/footer.html");
     });
   </script>
 </head>
 
 <body>
-  <header class="width-s"></header>
+  <header class="width-s {{ page.language }}"></header>
   <main>
     <div class="top">
       <h1>{{ page.title }}</h1>
       <p class="date">{{ page.date | date: "%Y/%m/%d" }}</p>
       <p class="tags">
         {% for tag in page.tags %}
-        <a href="//blog.xullua.com/tags/{{ tag | downcase }}">{{ tag }}</a>
+        <a href="//scope.xullua.com/tags/{{ tag | downcase }}">{{ tag }}</a>
         {% endfor %}
       </p>
       <img src="{{ page.image }}" alt="">
