@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.description }}">
+
+  <meta name="twitter:card" content="{{ page.ogpimgsize }}">
+  <meta name="twitter:site" content="@xullua">
+  <meta name="twitter:title" content="{{ page.title }}">
+  <meta name="twitter:description" content="{{ page.description }}">
+  <meta name="twitter:image" content="{{ page.image }}">
+
+  <link rel="shortcut icon" href="//xullua.com/img/favicon.ico">
+  <!-- CSS -->
+  <link rel="stylesheet" href="//xullua.com/css/color.css">
+  <link rel="stylesheet" href="//xullua.com/css/base.css">
+  <link rel="stylesheet" href="../text/article.css">
+
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- アナリティクス -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JDKGJ1E005"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-JDKGJ1E005');
+  </script>
+  <!-- 共通部分 -->
+  <script>
+    $(function () {
+      $("header").load("//scope.xullua.com/header.html");
+      $("footer").load("//xullua.com/footer.html");
+    });
+  </script>
+</head>
+
+<body>
+  <header class="width-s {{ page.language }}"></header>
+  <main>
+    <div class="top">
+      <h1>{{ page.title }}</h1>
+      <p class="date">{{ page.date | date: "%Y/%m/%d" }}</p>
+      <p class="tags">
+        {% for tag in page.tags %}
+        <a href="//scope.xullua.com/tags/{{ tag | downcase }}">{{ tag }}</a>
+        {% endfor %}
+      </p>
+      <img src="{{ page.image }}" alt="">
+    </div>
+    <article>{{ content }}</article>
+  </main>
+  <footer class="width-s" id="footer"></footer>
+</body>
