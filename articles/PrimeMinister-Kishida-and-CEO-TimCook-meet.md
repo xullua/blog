@@ -1,6 +1,6 @@
 ---
 title: iPhoneにマイナンバーカード機能が搭載される
-description: iPhoneにマイナンバーカード機能が搭載について、首相はAppleと合意へ
+description: 岸田総理とAppleティムクックCEOがオンラインで会談。iPhoneに来春マイナカード搭載へ
 image: https://scope.xullua.com/img/articles/PrimeMinister-Kishida-and-CEO-TimCook-meet.webp
 author: ぞるあ
 date: 2024-5-30
