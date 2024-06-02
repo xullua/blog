@@ -1,7 +1,397 @@
-article {
-    width: 100%;
+main {
+    width: min(var(--width-l), 100% - 30px);
+    margin: 60px auto;
 }
 
-article img {
-    width: min(100%,200px);
+main #articles {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 5px;
 }
+
+main article img {
+    width: 100%;
+    object-fit: contain;
+    border-radius: 15px 15px 0 0;
+}
+
+main article {
+    background: var(--secondback);
+    border-radius: 15px;
+}
+
+main article:hover {
+    filter: drop-shadow(0 0 1px var(--maintext));
+}
+
+main article a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+main article:first-child,
+main article:nth-child(2) {
+    grid-column: span 3;
+}
+
+main article .text {
+    padding: 5px 10px 10px;
+}
+
+main article .detail {
+    line-height: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+main article .tags {
+    font-size: 10px;
+    color: var(--subtext);
+}
+
+main article .tags span {
+    margin-right: 4px;
+}
+
+main article .date {
+    font-size: 12px;
+    color: var(--subtext);
+}
+
+main article h3 {
+    line-height: 1.2;
+    color: var(--maintext);
+    font-size: 18px;
+}
+
+main article:nth-child(n + 3) {
+    grid-column: span 2;
+}
+
+@media screen and (max-width: 1000px) {
+    main article:nth-child(n + 3) {
+        grid-column: span 6;
+    }
+
+    main article:nth-child(n + 3) a {
+        display: flex;
+        align-items: center;
+    }
+
+    main article:nth-child(n + 3) img {
+        width: min(30%, 300px);
+        aspect-ratio: 16 / 9;
+        border-radius: 15px 0 0 15px;
+    }
+
+    main article:nth-child(n + 3) .text {
+        padding: 15px 10px;
+    }
+
+    main article:nth-child(n + 3) .detail {
+        display: block;
+        line-height: 1.2;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    main article:first-child,
+    main article:nth-child(2) {
+        grid-column: span 6;
+    }
+
+    main article:nth-child(n + 2) {
+        grid-column: span 6;
+    }
+
+    main article:nth-child(n + 2) a {
+        display: flex;
+        align-items: center;
+    }
+
+    main article:nth-child(n + 2) img {
+        width: min(30%, 300px);
+        aspect-ratio: 16 / 9;
+        border-radius: 15px 0 0 15px;
+    }
+
+    main article:nth-child(n + 2) .text {
+        padding: 15px 10px;
+    }
+
+    main article:nth-child(n + 2) .detail {
+        display: block;
+        line-height: 1.2;
+    }
+
+    main article:nth-child(n + 2) .date {
+        font-size: 11px;
+    }
+
+    main article:nth-child(n + 2) h3 {
+        font-size: 16px;
+    }
+}
+
+main .loadmore {
+    text-align: center;
+}
+
+main button#loadMore {
+    outline: none;
+    border: none;
+    background: var(--btn);
+    color: var(--btntext);
+    padding: 5px 15px;
+    border-radius: 99px;
+    font-family: var(--font-family);
+    cursor: pointer;
+    transition: .2s;
+    margin: 20px auto;
+}
+
+main button#loadMore:hover {
+    background: var(--btnhover);
+}
+
+main input#filter {
+    display: none;
+}
+
+main .filter {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-self: center;
+    z-index: 999;
+    text-align: left;
+}
+
+main input#filter:checked+label+.filter {
+    display: flex;
+}
+
+html:has(input#filter:checked) {
+    overflow: hidden;
+}
+
+main #filterin {
+    background: var(--secondback);
+    border-radius: 15px;
+    padding: 15px;
+    width: min(var(--width-s),100% - 15px);
+    max-height: 90vh;
+    margin: 0 auto;
+    line-height: 1.2;
+    z-index: 999;
+    position: relative;
+}
+
+main .search {
+    width: 100%;
+    margin: 5px 0 10px;
+    text-align: right;
+}
+
+main .search input[type="text"] {
+    width: min(300px,100% - 126px);
+    outline: none;
+    border: none;
+    background: var(--secondback);
+    font-family: var(--font-family);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+main input#filter+label {
+    background: var(--secondback);
+    padding: 6px 30px 6px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+main input#filter+label:hover {
+    background: var(--thirdback);
+}
+
+main input#filter+label p {
+    position: relative;
+    display: inline;
+    margin-left: 10px;
+}
+
+main input#filter+label span {
+    position: absolute;
+    height: 2px;
+    background: var(--maintext);
+    transition: .2s;
+}
+
+main input#filter+label span:first-child {
+    width: 18px;
+    top: 5px;
+    left: 0;
+}
+
+main input#filter+label span:nth-child(2) {
+    width: 13px;
+    top: 10px;
+    left: 2.5px;
+}
+
+main input#filter+label span:last-child {
+    width: 8px;
+    top: 15px;
+    left: 5px;
+}
+
+main #filterin label[for="filter"] {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--thirdback);
+    width: 30px;
+    height: 30px;
+    aspect-ratio: 1 / 1;
+    line-height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    text-align: center;
+    font-size: 20px;
+    transition: .2s;
+}
+
+main #filterin label[for="filter"]:hover {
+    background: var(--fourthback);
+}
+
+main #filterin #categories,
+main #filterin #dateRange,
+main #filterin #tags {
+    margin: 20px 0 0;
+}
+
+main #filterin #categories label {
+    display: block;
+}
+
+main #filterin #categories label {
+    cursor: pointer;
+    padding: 0 0 0 20px;
+    position: relative;
+    transition: .1s;
+    white-space: nowrap;
+}
+
+main #filterin #categories label::before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 1px;
+    width: 10px;
+    height: 10px;
+    border-top: 1px solid var(--maintext);
+    border-right: 1px solid var(--maintext);
+    border-bottom: 1px solid var(--maintext);
+    border-left: 1px solid var(--maintext);
+    transform: rotate(90deg);
+    transition: 0;
+}
+
+main #filterin #categories label:has(input:checked)::before {
+    border-top: 2px solid var(--maintext);
+    border-right: 2px solid var(--maintext);
+    border-bottom: none;
+    border-left: none;
+    top: 5px;
+    left: 1px;
+    width: 12px;
+    height: 4px;
+    transform: rotate(135deg);
+    transition: .2s;
+}
+
+main #filterin input[type="checkbox"] {
+    display: none;
+}
+
+main .filter label.back {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 998;
+    cursor: pointer;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+main #filterin #tags label {
+    background: var(--thirdback);
+    padding: 4px 12px;
+    line-height: 35px;
+    font-size: 14px;
+    border-radius: 99px;
+    cursor: pointer;
+    position: relative;
+    transition: .1s;
+}
+
+main #filterin #tags label:has(input:checked) {
+    padding: 4px 12px 4px 28px;
+    transition: .2s;
+}
+
+main #filterin #tags label:hover {
+    background: var(--fourthback);
+}
+
+main #filterin #tags label::before {
+    content: "";
+    position: absolute;
+    border-top: 2px solid var(--maintext);
+    border-right: 2px solid var(--maintext);
+    top: 14px;
+    left: 12px;
+    width: 0px;
+    height: 4px;
+    transform: rotate(135deg);
+    transition: .2s;
+    opacity: 0;
+}
+
+main #filterin #tags label:has(input:checked)::before {
+    top: 10px;
+    left: 11px;
+    width: 12px;
+    opacity: 1;
+}
+
+main #filterin input[type="date"] {
+    outline: none;
+    border: none;
+    background: var(--thirdback);
+    font-family: var(--font-family);
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+}
+
+main #filterin input[type="date"]::-webkit-calendar-picker-indicator{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    cursor: pointer;
+  }
