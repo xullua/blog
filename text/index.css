@@ -112,7 +112,7 @@ main article:nth-child(n + 3) {
     }
 
     main article:nth-child(n + 2) img {
-        width: min(30%, 300px);
+        width: min(35%, 300px);
         aspect-ratio: 16 / 9;
         border-radius: 15px 0 0 15px;
     }
@@ -124,6 +124,10 @@ main article:nth-child(n + 3) {
     main article:nth-child(n + 2) .detail {
         display: block;
         line-height: 1.2;
+    }
+
+    main article:nth-child(n + 2) .tags {
+        display: none;
     }
 
     main article:nth-child(n + 2) .date {
