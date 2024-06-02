@@ -205,8 +205,9 @@ main .search input[type="text"] {
     border: none;
     background: var(--secondback);
     font-family: var(--font-family);
-    padding: 5px 10px;
+    padding: 4px 10px;
     border-radius: 5px;
+    font-size: 16px;
 }
 
 main input#filter+label {
@@ -289,6 +290,8 @@ main #filterin #categories label {
     position: relative;
     transition: .1s;
     white-space: nowrap;
+    font-size: 16px;
+    line-height: 22px;
 }
 
 main #filterin #categories label::before {
@@ -380,6 +383,8 @@ main #filterin input[type="date"] {
     background: var(--thirdback);
     font-family: var(--font-family);
     padding: 5px 10px;
+    font-size: 16px;
+    color: var(--maintext);
     border-radius: 5px;
     cursor: pointer;
     position: relative;
