@@ -43,18 +43,46 @@
 
 
 <body>
-    <!-- ヘッダー -->
     <header id="header"></header>
-
-    <main style="height: 100vh; display: flex; justify-content: center; align-items: center;">
-        <p style="text-align: center; padding: 0 20px;">現在、スコープのメインページは準備中です。もうしばらくお待ちください。</p>
+    <main>
+        <section class="discovery">
+            <div class="search">
+                <input type="text" name="" id="wordfilter" placeholder="検索する">
+                <input type="checkbox" name="" id="filter">
+                <label for="filter">絞り込む<p><span></span><span></span><span></span></p></label>
+                <div class="filter">
+                    <div id="filterin">
+                        <label for="filter">×</label>
+                        <h3>絞り込む</h3>
+                        <div id="categories">
+                        <h4>カテゴリー</h4>
+                            <label><input type="checkbox" name="category" value="review">レビュー</label>
+                            <label><input type="checkbox" name="category" value="News">ニュース</label>
+                            <label><input type="checkbox" name="category" value="Opinion">意見</label>
+                        </div>
+                        <div id="dateRange">
+                        <h4>日付</h4>
+                            <input type="date" name="date-from" id="">
+                            <span>～</span>
+                            <input type="date" name="date-to" id="">
+                        </div>
+                        <div id="tags">
+                        <h4>タグ</h4>
+                            <label><input type="checkbox" name="tags" value="Apple"> Apple</label>
+                            <label><input type="checkbox" name="tags" value="Gadget"> ガジェット</label>
+                            <label><input type="checkbox" name="tags" value="Review"> レビュー</label>
+                            <label><input type="checkbox" name="tags" value="News"> ニュース</label>
+                            <label><input type="checkbox" name="tags" value="Opinion"> 意見</label>
+                        </div>
+                    </div>
+                    <label for="filter" class="back"></label>
+                </div>
+            </div>
+            <div id="articles"></div>
+            <div class="loadmore"><button id="loadMore">更に読み込む</button></div>
+        </section>
     </main>
-
-    <div class="blogswrapper" id="blogdisplay"></div>
-
-    <!-- フッター -->
     <footer id="footer"></footer>
 
 </body>
-
 </html>
