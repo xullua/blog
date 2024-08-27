@@ -17,7 +17,8 @@ language: ja
 
 この記事ではどのような製品が来るか、リーク情報をまとめていきたいと思います。
 
-# iPhone16と16Plus
+
+## iPhone16と16Plus
 カメラ配置が縦になり、空間ビデオに対応します。
 カラバリは黒、白、青、緑、ピンクと予想されています。
 
@@ -34,7 +35,7 @@ language: ja
 AppleIntelligenceを使用できるようにメモリが8GBに増量されます。
 
 
-# iPhone16Proと16ProMax
+## iPhone16Proと16ProMax
 画面サイズが大きくなり、キャプチャボタンが追加されます。カラバリは黒、白、ナチュラルチタン、ブロンズチタンと予想されています。小さい方もストレージのスタートが256GBになるでしょう。ProモデルのみWi-Fi7に対応します。
 
 ### ディスプレイサイズの変更
@@ -52,7 +53,7 @@ AppleIntelligenceを使用できるようにメモリが8GBに増量されます
 JPEG-XLや3K 120fpsのDolbyVisionに対応します。
 
 
-# AppleWatch
+## AppleWatch
 ### AppleWatchSeries10
 あまり大きな変化はありませんが、画面が45mmと49mmとより大きくなり、薄くなるといわれています。
 
@@ -69,6 +70,6 @@ AirPodsに現在の第三世代の後継と新しいものの2モデルが登場
 今回はAirPodsProは来ないでしょう。
 
 
-
+<br><br>
 
 情報は9to5Max、Bloomberg、MacRumorsを参考にしました。
