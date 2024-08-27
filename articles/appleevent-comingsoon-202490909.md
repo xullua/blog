@@ -64,7 +64,7 @@ JPEG-XLや3K 120fpsのDolbyVisionに対応します。
 プラスチック製になります。
 
 
-# AirPods4
+## AirPods4
 AirPodsに現在の第三世代の後継と新しいものの2モデルが登場します。1つはProとは違う価格でアクティブノイズキャンセリングを搭載します。
 
 今回はAirPodsProは来ないでしょう。
