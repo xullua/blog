@@ -1,10 +1,61 @@
+:root {
+    --articleback: var(--firstback);
+    --articletext: var(--maintext);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --articleback: var(--firstback);
+        --articletext: var(--maintext);
+    }
+}
+
+html {
+    background: var(--articleback);
+    color: var(--articletext);
+}
+
 main {
     margin: 80px auto;
-    width: min(var(--width-s),100% - 30px);
+    width: min(var(--width-s), 100% - 30px);
+}
+
+main .top .detail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0 0;
+
+    .author {
+        display: flex;
+        align-items: center;
+        height: 30px;
+        padding: 2px 7px 2px 2px;
+        transition: .2s;
+        color: var(--maintext);
+
+        img {
+            display: block;
+            border-radius: 50%;
+            height: 100%;
+            margin: 0 5px 0 0;
+        }
+
+        .name {
+            width: fit-content;
+        }
+
+        &:hover {
+            background: var(--thirdback);
+            border-radius: 99px;
+            color: var(--url);
+        }
+    }
 }
 
 main .date {
     color: var(--subtext);
+    font-size: 14px;
 }
 
 main .tags {
@@ -24,7 +75,7 @@ main .tags a:hover {
     background: var(--btnhover);
 }
 
-main .top img {
+main .top>img {
     display: block;
     margin: 10px 0;
     width: 100%;
@@ -34,6 +85,7 @@ main .top img {
 
 main .top h1 {
     line-height: 1.2;
+    font-size: 24px;
 }
 
 article {
@@ -110,7 +162,7 @@ article table td {
 }
 
 article blockquote {
-    background: radial-gradient(at left top,var(--supportback),var(--secondback));
+    background: radial-gradient(at left top, var(--supportback), var(--secondback));
     padding: 15px 18px 15px 55px;
     margin: 15px 0;
     border-radius: 10px;
