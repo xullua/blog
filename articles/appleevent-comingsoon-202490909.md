@@ -2,7 +2,7 @@
 title: AppleEventで来るものを確認しよう！
 description: 9月9日26時からAppleEventが開催！来るものをおさらいして備えよう！
 image: https://scope.xullua.com/img/articles/appleevent-comingsoon-202490909.webp
-author: ぞるあ
+author: xullua
 date: 2024-8-27
 category: News
 tags:
