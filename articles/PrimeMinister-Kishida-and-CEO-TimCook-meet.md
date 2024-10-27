@@ -2,7 +2,7 @@
 title: 岸田総理とAppleティムクックCEOがオンラインで会談。iPhoneに来春マイナカード搭載へ
 description: 岸田総理とAppleティムクックCEOがオンラインで会談。iPhoneに来春マイナカード搭載へ。何が便利になるのか
 image: https://scope.xullua.com/img/articles/PrimeMinister-Kishida-and-CEO-TimCook-meet.webp
-author: ぞるあ
+author: xullua
 date: 2024-5-30
 category: News
 tags:

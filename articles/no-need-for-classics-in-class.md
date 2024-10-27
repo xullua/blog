@@ -2,7 +2,7 @@
 title: 古典不要論について考える
 description: 私たち日本人が学ぶ古典、これはよく不要論が出てきます。実際にはなぜ必要なのでしょうか。
 image: ../img/articles/no-need-for-classics-in-class.webp
-author: ぞるあ
+author: xullua
 date: 2024-5-24
 category: Opinion
 tags:

@@ -1,8 +1,8 @@
 ---
 title: iPhoneにマイナンバーカード機能が搭載される
 description: iPhoneにマイナンバーカード機能が搭載について、首相はAppleと合意へ
-image: //scope.xullua.com/img/articles/iphone-will-have-individual-number-card-functions.webp
-author: ぞるあ
+image: https://scope.xullua.com/img/articles/iphone-will-have-individual-number-card-functions.webp
+author: xullua
 date: 2024-5-30
 category: News
 tags:
