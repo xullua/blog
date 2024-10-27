@@ -1,8 +1,6 @@
-[
-    {
-        "xullua": {
-          "name": "ぞるあ",
-          "icon": "https://xullua.com/img/xulluaiconwhiteblock.webp"
-        }
-      }      
-]
+{
+    "xullua": {
+        "name": "ぞるあ",
+        "icon": "//xullua.com/img/xulluaiconwhiteblock.webp"
+    }
+}
