@@ -2,7 +2,7 @@
 title: これはテスト記事です
 description: これはブログサイトのテストページです。ここではデザインを設定します
 image: //xullua.com/img/top-hello6.webp
-author: ぞるあ
+author: xullua
 date: 2024-5-11
 category: Apple
 tags:
@@ -29,7 +29,7 @@ language: ja
 
 はいということでみなさんどうもこんにちは
 
-><b>日本国憲法 前文</b>
+><b>日本国憲法 前文</b><br>
 日本国民は、国家の名誉にかけ、全力をあげてこの崇高な理想と目的を達成することを誓ふ。
 <cite>[衆議院 日本国憲法](https://www.shugiin.go.jp/internet/itdb_annai.nsf/html/statics/shiryo/dl-constitution.htm)</cite>
 
