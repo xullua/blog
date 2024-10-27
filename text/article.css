@@ -30,7 +30,8 @@ main .top .detail {
         display: flex;
         align-items: center;
         height: 30px;
-        padding: 2px 7px 2px 2px;
+        padding: 0 7px 0 0;
+        outline: 2px solid #0000;
         transition: .2s;
         color: var(--maintext);
 
@@ -49,6 +50,7 @@ main .top .detail {
             background: var(--thirdback);
             border-radius: 99px;
             color: var(--url);
+            outline: 2px solid var(--thirdback);
         }
     }
 }
