@@ -55,6 +55,8 @@
       <h1>{{ page.title }}</h1>
       <div class="detail">
         {% assign author_data = site.data.author[page.author] %}
+        <!-- デバッグ用に追加 -->
+        <p>Author Data: {{ author_data | inspect }}</p>
         <a class="author" href="//scope.xullua.com/author/@{{ page.author }}">
           <img src="{{ author_data.icon }}" alt="{{ author_data.name }}">
           <p class="name">{{ author_data.name }}</p>
