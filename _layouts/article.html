@@ -54,10 +54,6 @@
     <div class="top">
       <h1>{{ page.title }}</h1>
       <div class="detail">
-        <!-- デバッグ用に変更 -->
-        <p>Page Author: {{ page.author }}</p>
-        <p>Author Data: {{ site.data.author[page.author] | inspect }}</p>
-
         {% assign author_data = site.data.author[page.author] %}
         <a class="author" href="//scope.xullua.com/author/@{{ page.author }}">
           <img src="{{ author_data.icon }}" alt="{{ author_data.name }}">
@@ -65,10 +61,6 @@
         </a>
         <p class="date">{{ page.date | date: "%Y/%m/%d" }}</p>
       </div>
-      <!-- 直接参照で確認 -->
-      <p>Author Name Test: {{ site.data.author.xullua.name }}</p>
-      <p>Author Icon Test: {{ site.data.author.xullua.icon }}</p>
-      <p>Test Message: {{ site.data.test.test.message }}</p>
 
       <p class="tags">
         {% for tag in page.tags %}
