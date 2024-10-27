@@ -12,16 +12,20 @@ main #articles {
 main article img {
     width: 100%;
     object-fit: contain;
-    border-radius: 15px 15px 0 0;
 }
 
 main article {
     background: var(--secondback);
     border-radius: 15px;
+    overflow: hidden;
+    outline: 1px solid #0000;
+    outline-offset: 6px;
+    transition: .2s;
 }
 
 main article:hover {
-    filter: drop-shadow(0 0 1px var(--maintext));
+    outline: 1px solid var(--line);
+    outline-offset: 1px;
 }
 
 main article a {
@@ -83,7 +87,6 @@ main article:nth-child(n + 3) {
     main article:nth-child(n + 3) img {
         width: min(30%, 300px);
         aspect-ratio: 16 / 9;
-        border-radius: 15px 0 0 15px;
     }
 
     main article:nth-child(n + 3) .text {
@@ -114,7 +117,6 @@ main article:nth-child(n + 3) {
     main article:nth-child(n + 2) img {
         width: min(35%, 300px);
         aspect-ratio: 16 / 9;
-        border-radius: 15px 0 0 15px;
     }
 
     main article:nth-child(n + 2) .text {
@@ -170,15 +172,23 @@ main .filter {
     right: 0;
     height: 100vh;
     width: 100%;
-    display: none;
+    display: flex;
     align-items: center;
     justify-self: center;
     z-index: 999;
     text-align: left;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(.9) translate(5%,-10%);
+    filter: blur(20px);
+    transition: .2s;
 }
 
 main input#filter:checked+label+.filter {
-    display: flex;
+    transition: .5s cubic-bezier(0,0,0,1);
+    transform: scale(1) translate(0);
+    filter: blur(0px);
+    opacity: 1;
 }
 
 html:has(input#filter:checked) {
@@ -187,7 +197,7 @@ html:has(input#filter:checked) {
 
 main #filterin {
     background: var(--secondback);
-    border-radius: 20px;
+    border-radius: 25px;
     padding: 20px;
     width: min(var(--width-s),100% - 15px);
     max-height: 90vh;
@@ -195,6 +205,11 @@ main #filterin {
     line-height: 1.2;
     z-index: 999;
     position: relative;
+    pointer-events: none;
+}
+
+main input#filter:checked+label+.filter #filterin {
+    pointer-events: auto;
 }
 
 main .search {
@@ -273,8 +288,8 @@ main input#filter+label span:last-child {
 
 main #filterin label[for="filter"] {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 10px;
+    right: 10px;
     background: var(--thirdback);
     width: 30px;
     height: 30px;
@@ -343,14 +358,36 @@ main #filterin input[type="checkbox"] {
     display: none;
 }
 
-main .filter label.back {
+main input+label+.filter+label.back {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     position: fixed;
+    top: 0;
+    left: 0;
     z-index: 998;
     cursor: pointer;
+    backdrop-filter: blur(0);
+    -webkit-backdrop-filter: blur(0);
+    pointer-events: none;
+    transition: .5s cubic-bezier(0,0,0,1);
+}
+
+main input:checked+label+.filter+label.back {
+    transition: 1s cubic-bezier(0,0,0,1);
+    pointer-events: all;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+}
+
+@keyframes filterbackanime {
+    0% {
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+    }
+    100% {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
 }
 
 main #filterin #tags label {
