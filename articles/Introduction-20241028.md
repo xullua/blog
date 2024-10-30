@@ -1,7 +1,7 @@
 ---
 titile: 【テスト投稿】はじめまして。
 description: はじめまして。石谷バーモンです。スコープのライターとして新しく参加しました！
-image: https://scope.xullua.com/img/articles/introduction-20241028
+image: https://scope.xullua.com/img/articles/introduction-20241028.webp
 autour: Barmon
 date: 2024-10-28
 category: News
