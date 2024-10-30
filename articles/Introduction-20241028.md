@@ -8,13 +8,12 @@ category: News
 tags:
 - News
 - Introduction 
--
 ogpimgsize: summary_large_image
 layout: article
 language: ja
 ---
 
-## こんにちは
+### こんにちは
 この度、スコープにライターとして参加した石谷バーモンです。
 
 
