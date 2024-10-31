@@ -1,5 +1,5 @@
 ---
-titile: 【テスト投稿】¡Hola!
+title: 【テスト投稿】¡Hola!
 description: はじめまして。石谷バーモンです。スコープのライターとして新しく参加しました！
 image: https://scope.xullua.com/img/articles/Introduction-20241028.webp
 autour: barmon
