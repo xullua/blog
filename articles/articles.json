@@ -1,12 +1,12 @@
 [
  {
-        "title": "石谷バーモンがライターとして参加しました。",
+        "title": "石谷バーモンがライターとして参加しました！",
         "description": "はじめまして。石谷バーモンです。スコープのライターとして新しく参加しました！",
         "image": "https://scope.xullua.com/img/articles/Introduction-20241028.webp",
         "date": "2024-11-8",
         "category": "News",
         "tags": "News,Introduction",
-        "url": "https://scope.xullua.com/articles/introduction-20241028",
+        "url":"https://scope.xullua.com/articles/introduction-20241028",
         "author": "バーモン",
         "ogpimgsize": "summary_large_image",
         "layout": "article",
