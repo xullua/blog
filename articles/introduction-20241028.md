@@ -1,5 +1,5 @@
 ---
-title: 【テスト投稿】¡Hola!
+title: ¡Hola!
 description: はじめまして。石谷バーモンです。スコープのライターとして新しく参加しました！
 image: https://scope.xullua.com/img/articles/Introduction-20241028.webp
 author: barmon
@@ -13,7 +13,7 @@ layout: article
 language: ja
 ---
 この度、スコープにライターとして参加した石谷バーモンです。
-これはテスト記事ということで雑多に自己を紹介していきたいと思います。
+最初の記事ということで雑多に自己を紹介していきたいと思います。
 
 ### どんな人？
 神奈川県内に住民票を置く2005年生まれの大学一年生です。
