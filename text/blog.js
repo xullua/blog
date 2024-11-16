@@ -1,98 +1,83 @@
 let currentArticleIndex = 0;
 const initialArticlesPerLoad = 11;
 const additionalArticlesPerLoad = 9;
-const currentYear = new Date().getFullYear();
 
-// 記事データを取得
-fetch('articles/articles.json')
-    .then(response => response.json())
-    .then(data => {
-        loadArticles(data, initialArticlesPerLoad, false);
-        document.getElementById('loadMore').addEventListener('click', () => {
-            currentArticleIndex += additionalArticlesPerLoad;
-            loadArticles(data, additionalArticlesPerLoad, false);
-        });
-        document.querySelectorAll('.filter input[type=checkbox]').forEach(checkbox => {
-            checkbox.addEventListener('change', () => {
-                currentArticleIndex = 0;
-                document.getElementById('articles').innerHTML = '';
-                loadArticles(data, initialArticlesPerLoad, true);
-            });
-        });
-        document.querySelectorAll('.filter input[type=date]').forEach(input => {
-            input.addEventListener('change', () => {
-                currentArticleIndex = 0;
-                document.getElementById('articles').innerHTML = '';
-                loadArticles(data, initialArticlesPerLoad, true);
-            });
-        });
-        document.querySelector('.search input[type=text]').addEventListener('input', () => {
-            currentArticleIndex = 0;
-            document.getElementById('articles').innerHTML = '';
-            loadArticles(data, initialArticlesPerLoad, true);
-        });
+// 初期ロードとボタンクリックのイベントを設定
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("ページがロードされました");  // ページロード確認
+    loadArticles(false);  // 初期表示
+    document.getElementById('loadMore').addEventListener('click', () => {
+        currentArticleIndex += additionalArticlesPerLoad;
+        loadArticles(false);
     });
 
-function loadArticles(data, articlesPerLoad, applyFilters) {
+    // フィルタ設定
+    document.querySelectorAll('.filter input[type=checkbox], .filter input[type=date]').forEach(input => {
+        input.addEventListener('change', applyFilters);
+    });
+
+    // 検索ボックスのフィルタリング
+    document.querySelector('.search input[type=text]').addEventListener('input', applyFilters);
+});
+
+// 記事をロードし、初期または追加のものを表示
+function loadArticles(applyFilters) {
     const articlesDiv = document.getElementById('articles');
-    let loadedArticles = 0;
-    for (let i = currentArticleIndex; loadedArticles < articlesPerLoad && i < data.length; i++) {
-        const article = data[i];
-        if (!applyFilters || matchesFilters(article)) {
-            const tags = article.tags.split(',').map(tag => `<span>${tag.trim()}</span>`).join('');
-            const date = formatDate(article.date);
-            const articleHTML = `
-                <article>
-                    <a href="${article.url}">
-                        <img src="${article.image}" alt="${article.title}">
-                        <div class="text">
-                            <div class="detail">
-                                <p class="tags">${tags}</p>
-                                <p class="date">${date}</p>
-                            </div>
-                            <h3>${article.title}</h3>
-                        </div>
-                    </a>
-                </article>
-            `;
-            articlesDiv.innerHTML += articleHTML;
-            loadedArticles++;
-        }
+    const allArticles = Array.from(document.querySelectorAll('#articles article'));
+
+    if (allArticles.length === 0) {
+        console.log("記事が見つかりません");  // 記事が取得されていない場合の確認
+        return;
+    } else {
+        console.log(`全${allArticles.length}件の記事が見つかりました`);  // 記事数確認
     }
-    if (currentArticleIndex + articlesPerLoad >= data.length) {
+
+    // 記事の表示処理
+    let loadedArticles = 0;
+    allArticles.forEach((article, index) => {
+        if (!applyFilters || matchesFilters(article)) {
+            article.style.display = (index >= currentArticleIndex && loadedArticles < additionalArticlesPerLoad) ? 'block' : 'none';
+            loadedArticles++;
+            console.log(`記事${index}を表示`);  // 表示される記事の確認
+        }
+    });
+
+    // もっと読むボタンの表示設定
+    if (currentArticleIndex + additionalArticlesPerLoad >= allArticles.length) {
         document.getElementById('loadMore').style.display = 'none';
+        console.log("全ての記事が表示されました");  // 記事が全て表示されたかどうかの確認
+    } else {
+        console.log("もっと読むボタンが表示されました");  // もっと読むボタンが表示されているか確認
     }
 }
 
+// フィルタの設定
+function applyFilters() {
+    console.log("フィルタが適用されました");  // フィルタが適用されたか確認
+    currentArticleIndex = 0;
+    loadArticles(true);
+}
+
+// フィルタ条件の確認
 function matchesFilters(article) {
     const selectedCategories = Array.from(document.querySelectorAll('.filter input[name="category"]:checked')).map(checkbox => checkbox.value);
     const selectedTags = Array.from(document.querySelectorAll('.filter input[name="tags"]:checked')).map(checkbox => checkbox.value);
     const dateFrom = document.querySelector('.filter input[name="date-from"]').value;
     const dateTo = document.querySelector('.filter input[name="date-to"]').value;
-    const searchText = document.querySelector('.search input[type=text]').value.toLowerCase();
+    const searchText = document.querySelector('.search input[type="text"]').value.toLowerCase();
 
-    let categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(article.category);
-    let tagsMatch = selectedTags.length === 0 || selectedTags.some(tag => article.tags.includes(tag));
-    let dateMatch = true;
-    let textMatch = true;
+    const articleCategory = article.getAttribute('data-category');
+    const articleTags = article.getAttribute('data-tags').split(',');
+    const articleDate = new Date(article.getAttribute('data-date'));
+    const articleTitle = article.querySelector('h3').textContent.toLowerCase();
 
-    if (dateFrom) {
-        dateMatch = dateMatch && (new Date(article.date) >= new Date(dateFrom));
-    }
-    if (dateTo) {
-        dateMatch = dateMatch && (new Date(article.date) <= new Date(dateTo));
-    }
+    let matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(articleCategory);
+    let matchesTags = selectedTags.length === 0 || selectedTags.some(tag => articleTags.includes(tag));
+    let matchesDate = true;
+    let matchesText = articleTitle.includes(searchText);
 
-    if (searchText) {
-        textMatch = article.title.toLowerCase().includes(searchText) ||
-            article.description.toLowerCase().includes(searchText) ||
-            article.tags.toLowerCase().includes(searchText);
-    }
+    if (dateFrom) matchesDate = matchesDate && (articleDate >= new Date(dateFrom));
+    if (dateTo) matchesDate = matchesDate && (articleDate <= new Date(dateTo));
 
-    return categoryMatch && tagsMatch && dateMatch && textMatch;
-}
-
-function formatDate(dateString) {
-    const [year, month, day] = dateString.split('-');
-    return year === currentYear.toString() ? `${month}月${day}日` : `${year}年${month}月${day}日`;
+    return matchesCategory && matchesTags && matchesDate && matchesText;
 }
