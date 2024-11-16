@@ -2,63 +2,109 @@ let currentArticleIndex = 0;
 const initialArticlesPerLoad = 11;
 const additionalArticlesPerLoad = 9;
 
-// 初期ロードとボタンクリックのイベントを設定
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("ページがロードされました");  // ページロード確認
-    loadArticles(false);  // 初期表示
-    document.getElementById('loadMore').addEventListener('click', () => {
-        currentArticleIndex += additionalArticlesPerLoad;
-        loadArticles(false);
-    });
+    console.log("ページがロードされました"); // ページロード確認
+
+    const articlesDiv = document.getElementById('articles');
+    if (articlesDiv) {
+        console.log("#articles が見つかりました"); // 記事リスト要素があるか確認
+
+        const articles = articlesDiv.querySelectorAll('article');
+        if (articles.length === 0) {
+            console.warn("記事が見つかりません"); // 記事が表示されていない場合の警告
+        } else {
+            console.log(`全${articles.length}件の記事が見つかりました`); // 記事の数を確認
+        }
+    } else {
+        console.error("#articles が見つかりません"); // 記事リストのHTML要素が無い場合のエラー
+    }
+
+    // 初期ロード
+    loadArticles(false);
+
+    // ボタンのクリックイベント
+    const loadMoreButton = document.getElementById('loadMore');
+    if (loadMoreButton) {
+        loadMoreButton.addEventListener('click', () => {
+            currentArticleIndex += additionalArticlesPerLoad;
+            console.log(`現在の記事インデックス: ${currentArticleIndex}`);
+            loadArticles(false);
+        });
+    } else {
+        console.error("もっと読むボタン (#loadMore) が見つかりません");
+    }
 
     // フィルタ設定
     document.querySelectorAll('.filter input[type=checkbox], .filter input[type=date]').forEach(input => {
-        input.addEventListener('change', applyFilters);
+        input.addEventListener('change', () => {
+            console.log("フィルタが変更されました");
+            applyFilters();
+        });
     });
 
     // 検索ボックスのフィルタリング
-    document.querySelector('.search input[type=text]').addEventListener('input', applyFilters);
+    const searchInput = document.querySelector('.search input[type=text]');
+    if (searchInput) {
+        searchInput.addEventListener('input', () => {
+            console.log("検索フィルタが適用されました");
+            applyFilters();
+        });
+    } else {
+        console.error("検索入力ボックスが見つかりません");
+    }
 });
 
-// 記事をロードし、初期または追加のものを表示
+// 記事をロード
 function loadArticles(applyFilters) {
     const articlesDiv = document.getElementById('articles');
-    const allArticles = Array.from(document.querySelectorAll('#articles article'));
-
-    if (allArticles.length === 0) {
-        console.log("記事が見つかりません");  // 記事が取得されていない場合の確認
+    if (!articlesDiv) {
+        console.error("#articles が存在しません");
         return;
-    } else {
-        console.log(`全${allArticles.length}件の記事が見つかりました`);  // 記事数確認
     }
 
-    // 記事の表示処理
+    const allArticles = Array.from(articlesDiv.querySelectorAll('article'));
+    if (allArticles.length === 0) {
+        console.warn("記事がありません。データが正しいか確認してください");
+        return;
+    }
+
+    console.log(`全記事数: ${allArticles.length}`);
+
     let loadedArticles = 0;
     allArticles.forEach((article, index) => {
         if (!applyFilters || matchesFilters(article)) {
-            article.style.display = (index >= currentArticleIndex && loadedArticles < additionalArticlesPerLoad) ? 'block' : 'none';
-            loadedArticles++;
-            console.log(`記事${index}を表示`);  // 表示される記事の確認
+            const shouldDisplay = index >= currentArticleIndex && loadedArticles < additionalArticlesPerLoad;
+            article.style.display = shouldDisplay ? 'block' : 'none';
+
+            if (shouldDisplay) {
+                console.log(`記事${index + 1}（${article.querySelector('h3').textContent}）を表示`);
+                loadedArticles++;
+            }
         }
     });
 
-    // もっと読むボタンの表示設定
+    const loadMoreButton = document.getElementById('loadMore');
     if (currentArticleIndex + additionalArticlesPerLoad >= allArticles.length) {
-        document.getElementById('loadMore').style.display = 'none';
-        console.log("全ての記事が表示されました");  // 記事が全て表示されたかどうかの確認
+        if (loadMoreButton) {
+            loadMoreButton.style.display = 'none';
+        }
+        console.log("全ての記事が表示されました");
     } else {
-        console.log("もっと読むボタンが表示されました");  // もっと読むボタンが表示されているか確認
+        if (loadMoreButton) {
+            loadMoreButton.style.display = 'block';
+        }
+        console.log("もっと読むボタンが表示されています");
     }
 }
 
-// フィルタの設定
+// フィルタの適用
 function applyFilters() {
-    console.log("フィルタが適用されました");  // フィルタが適用されたか確認
+    console.log("フィルタ処理を開始");
     currentArticleIndex = 0;
     loadArticles(true);
 }
 
-// フィルタ条件の確認
+// フィルタ条件の判定
 function matchesFilters(article) {
     const selectedCategories = Array.from(document.querySelectorAll('.filter input[name="category"]:checked')).map(checkbox => checkbox.value);
     const selectedTags = Array.from(document.querySelectorAll('.filter input[name="tags"]:checked')).map(checkbox => checkbox.value);
@@ -79,5 +125,6 @@ function matchesFilters(article) {
     if (dateFrom) matchesDate = matchesDate && (articleDate >= new Date(dateFrom));
     if (dateTo) matchesDate = matchesDate && (articleDate <= new Date(dateTo));
 
+    console.log(`記事フィルタ判定: Category=${matchesCategory}, Tags=${matchesTags}, Date=${matchesDate}, Text=${matchesText}`);
     return matchesCategory && matchesTags && matchesDate && matchesText;
 }
