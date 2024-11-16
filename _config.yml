@@ -1,8 +1,8 @@
 title: "スコープ"
 description: "ブログやニュースを書いています。"
-baseurl: "" 
-url: "https://scope.xullua.com" 
-future: true 
+baseurl: "" # リポジトリがルートの場合は空のままでOK
+url: "https://scope.xullua.com"
+future: true
 
 authors:
   xullua:
@@ -29,3 +29,4 @@ defaults:
       path: "_posts"
     values:
       layout: post
+      author: xullua
