@@ -63,6 +63,15 @@ function loadArticles(applyFilters) {
     }
 
     const allArticles = Array.from(articlesDiv.querySelectorAll('article'));
+    allArticles.forEach((article, index) => {
+        console.log(`記事${index + 1}のデータ:`, {
+            category: article.getAttribute('data-category'),
+            tags: article.getAttribute('data-tags'),
+            date: article.getAttribute('data-date'),
+            title: article.querySelector('h3')?.textContent || "タイトルがありません",
+        });
+    });
+
     if (allArticles.length === 0) {
         console.warn("記事がありません。データが正しいか確認してください");
         return;
