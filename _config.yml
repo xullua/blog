@@ -1,0 +1,20 @@
+title: "スコープ"
+description: "ブログやニュースを書いています。"
+baseurl: "" 
+url: "https://scope.xullua.com" 
+future: true 
+
+authors:
+  xullua:
+    name: "Xullua"
+    bio: "ぞるあ"
+    avatar: "//xullua.com/img/xulluaiconwhiteblock.webp"
+  john_doe:
+    name: "barmon"
+    bio: "石谷バーモン"
+    avatar: "//scope.xullua.com/img/author/barmon.webp"
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag

@@ -83,8 +83,7 @@
             </div>
             <div id="articles">
                 {% for post in site.posts %}
-                <article data-category="{{ post.category }}" data-tags="{{ post.tags | join: ',' }}"
-                    data-date="{{ post.date | date: '%Y-%m-%d' }}">
+                <article data-category="{{ post.category }}" data-tags="{{ post.tags | join: ',' }}" data-date="{{ post.date | date: '%Y-%m-%d' }}">
                     <a href="{{ post.url }}">
                         <img src="{{ post.image }}" alt="{{ post.title }}">
                         <div class="text">
@@ -98,6 +97,7 @@
                 </article>
                 {% endfor %}
             </div>
+
 
             <div class="loadmore"><button id="loadMore">更に読み込む</button></div>
         </section>
