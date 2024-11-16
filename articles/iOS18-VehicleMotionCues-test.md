@@ -1,10 +1,10 @@
 ---
 title: 【iOS18】車酔い軽減機能の効果を検証！！
 description: iOS18の新機能である車酔い軽減機能（車両モーションキュー）の効果を実際に電車に乗って検証しました！
-image: 
+image: https://scope.xullua.com/img/articles/iOS18_VihecleMotionCues_test.webp
 author: バーモン
 date: 2024-11-
-category:
+category: 
 tags:
 - Apple
 - iOS18
