@@ -2,7 +2,7 @@
 title: 【iOS18】車酔い軽減機能の効果を検証！！
 description: iOS18の新機能である車酔い軽減機能（車両モーションキュー）の効果を実際に電車に乗って検証しました！
 image: https://scope.xullua.com/img/articles/iOS18_VihecleMotionCues_test.webp
-author: バーモン
+author: barmon
 date: 2024-11-17
 category: News
 tags:
@@ -12,6 +12,7 @@ tags:
 ogpimgsize: summary_large_image
 layout: article
 language: ja
+---
 
 石谷バーモンです。突然ですが私は電車酔いします。
 通学のために約40分ほど電車に揺られるのですが、その間ずっとスマホを見ていると軽く車酔いのような気分になってしまうのです。
