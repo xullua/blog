@@ -42,8 +42,7 @@ language: ja
 ![横向き画面で動画を表示しているスマホ](https://scope.xullua.com/img/articles/iOS18_VihecleMotionCues_test_2.webp)
 ↑結構中央までかぶってくる
 
-良きなツイート
-https://x.com/hill_yoll/status/1855568340061970940
+[良きなツイート](https://x.com/hill_yoll/status/1855568340061970940)
 
 ---
 
@@ -53,8 +52,7 @@ https://x.com/hill_yoll/status/1855568340061970940
 ですが、モードオン時と異なる点もありました。それは下車した後に首の凝りを感じました。
 オンの時は酔いはもちろん首が凝るということもなかったのでこれはモーションキューの効果かもしれません。
 
-良きなツイート
-https://x.com/onodera000/status/1855529871633699008
+[良きなツイート](https://x.com/onodera000/status/1855529871633699008)
 
 ## まとめると......
 車両モーションキューのオンでもオフでも酔うことはありませんでした。
