@@ -1,7 +1,7 @@
 ---
 title: 【iOS18】車酔い軽減機能の効果を検証！！
 description: iOS18の新機能である車酔い軽減機能（車両モーションキュー）の効果を実際に電車に乗って検証しました！
-image: https://scope.xullua.com/img/articles/iOS18_VihecleMotionCues_test.webp
+image: https://scope.xullua.com/img/articles/iOS18_VehicleMotionCues_test.webp
 author: barmon
 date: 2024-11-17
 category: News
@@ -39,7 +39,7 @@ language: ja
 検証中はずっとTwitterを見てましたがモーションキューの点々はディスプレイの端の方にしかいないので、特にコンテンツの邪魔になるということは無いと思います。
 ただ、横画面でYouTubeなどで動画を見ると点々が結構ディスプレイの内側まで表示されるの映像コンテンツ系を視聴するときはオフにした方がいいかもしれません。
 
-![横向き画面で動画を表示しているスマホ](https://scope.xullua.com/img/articles/iOS18_VihecleMotionCues_test_2.webp)
+![横向き画面で動画を表示しているスマホ](https://scope.xullua.com/img/articles/iOS18_VehicleMotionCues_test_2.webp)
 ↑結構中央までかぶってくる
 
 [良きなツイート](https://x.com/hill_yoll/status/1855568340061970940)
