@@ -46,11 +46,11 @@ function loadArticles(data, articlesPerLoad, applyFilters) {
                     <a href="${article.url}">
                         <img src="${article.image}" alt="${article.title}">
                         <div class="text">
+                            <h3>${article.title}</h3>
                             <div class="detail">
                                 <p class="tags">${tags}</p>
                                 <p class="date">${date}</p>
                             </div>
-                            <h3>${article.title}</h3>
                         </div>
                     </a>
                 </article>
