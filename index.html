@@ -38,7 +38,7 @@
     <!-- 共通部分 -->
     <script>
         $(function () {
-            $("#header").load("//scope.xullua.com/header.html");
+            $("header").load("//scope.xullua.com/header.html");
             $("#footer").load("//xullua.com/footer.html");
         });
     </script>
@@ -46,7 +46,7 @@
 
 
 <body>
-    <header id="header"></header>
+    <header></header>
     <main>
         <section class="discovery">
             <div class="search">
@@ -55,7 +55,7 @@
                 <label for="filter">絞り込む<p><span></span><span></span><span></span></p></label>
                 <div class="filter">
                     <div id="filterin">
-                        <label for="filter">×</label>
+                        <label for="filter" class="close">×</label>
                         <h3>絞り込む</h3>
                         <div id="categories">
                             <h4>カテゴリー</h4>
@@ -76,6 +76,9 @@
                             <label><input type="checkbox" name="tags" value="Review"> レビュー</label>
                             <label><input type="checkbox" name="tags" value="News"> ニュース</label>
                             <label><input type="checkbox" name="tags" value="Opinion"> 意見</label>
+                        </div>
+                        <div id="go">
+                            <label for="filter" class="done">完了</label>
                         </div>
                     </div>
                 </div>
