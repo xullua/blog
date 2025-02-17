@@ -44,6 +44,6 @@ HomePodの進化する点と言えばApple Intelligenceに対応に対応する�
 無印iPadもアップグレードされるのではないでしょうか。過去の発表の時期から見ると無印iPadが春に発表されるというのは近年はありませんでしたが、現状Apple Intelligenceに対応していないiPadが無印iPadだけであることからiPad mini(gen7)と同じく
 A17Proを搭載することでApple Intelligenceに対応を急ぐのではないでしょうか。
 
-##　まとめ
+## まとめ
 やはり一番有力なのはiPhone SEですね。それ以外にも一体何が発表されるのか気になるますね。
 個人的にはMシリーズチップのMacBook(12インチ)が出ると嬉しいですね。
