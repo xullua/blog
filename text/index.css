@@ -100,8 +100,14 @@ main article h3 {
         article {
             border-radius: 0;
 
+            &:hover {
+                transform: scale(1);
+                filter: none;
+            }
+
             img {
                 border-radius: 0;
+                filter: none;
             }
 
             .text {
@@ -344,7 +350,7 @@ main #filterin #go {
         width: 100%;
         font-size: 16px;
         transition: .2s;
-        
+
         &:hover {
             background: var(--themecolorhover);
         }
