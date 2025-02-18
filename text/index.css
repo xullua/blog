@@ -7,21 +7,25 @@ main {
 main #articles {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px 10px;
+    gap: 26px 6px;
 }
 
 main article {
-    border-radius: 15px;
+    padding: 2px;
+    border-radius: 17px;
     outline: 0px solid #0000;
+    outline-offset: -1px;
     height: fit-content;
     z-index: 1;
     transition: .2s;
 }
 
 main article:hover {
-    outline: 7px solid var(--secondback);
-    outline-offset: 0px;
+    transform: scale(1.05);
+    z-index: 2;
+    outline: 6px solid var(--secondback);
     background: var(--secondback);
+    filter: drop-shadow(5px 5px 10px #0004);
 }
 
 main article a {
@@ -33,8 +37,24 @@ main article a {
 
 main article img {
     width: 100%;
-    border-radius: 15px 15px 0 0;
+    border-radius: 15px;
+    filter: drop-shadow(5px 5px 10px #0004);
     object-fit: contain;
+    transition: .2s;
+}
+
+@media (prefers-color-scheme: dark) {
+    main article:hover {
+        filter: drop-shadow(5px 5px 10px #000a);
+    }
+
+    main article img {
+        filter: drop-shadow(5px 5px 10px #000a);
+    }
+}
+
+main article:hover img {
+    filter: drop-shadow(5px 5px 10px #0000);
 }
 
 main article .text {
@@ -314,6 +334,7 @@ main #filterin #go {
 
     label {
         background: var(--themecolor);
+        color: #fff;
         display: block;
         margin: 20px 0 0;
         padding: 7px;
