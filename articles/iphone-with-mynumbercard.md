@@ -1,9 +1,9 @@
 ---
-title: 【マイナカード】Apple Walletへのマイナンバーカードの搭載開始日が決定。
-description: 今月24日からはじまるマイナンバーカードのApple Wallet搭載機能。一体なにが変わるのでしょうか。
+title: 【開始直前!!!】Apple Walletへのマイナンバーカードの搭載開始日が決定。
+description: 今月24日からはじまるマイナンバーカードのApple Wallet搭載機能。一体なにができるのか。事前準備も確認しましょう!!!
 image: https://scope.xullua.com/img/articles/iphone-with-mynumbercard.webp
 author: barmon
-date: 2025-06-14
+date: 2025-06-21
 category: News
 tags:
 - Apple
