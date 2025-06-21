@@ -6,6 +6,7 @@ author: barmon
 date: 2025-06-21
 category: News
 tags:
+- iPhone
 - Apple
 - News
 ogpimgsize: summary_large_image
